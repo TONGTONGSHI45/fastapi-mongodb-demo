@@ -9,6 +9,7 @@ on:
 jobs:
   test-code:
     runs-on: ubuntu-22.04
+    container: python:3.8-slim
     services:
       mongo:
         image: mongo:6.0.2
@@ -21,10 +22,10 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v3
-      - name: set up py 
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.8
+      #- name: set up py 
+       # uses: actions/setup-python@v4
+       # with:
+       #   python-version: 3.8
       - name: install requirements
         run: |
           python -m pip install --upgrade pip
